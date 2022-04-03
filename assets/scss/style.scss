@@ -1,0 +1,30 @@
+// // Core
+@import "variables";
+@import "fonts";
+@import "icons";
+@import "default";
+@import "helpers";
+
+// Layout
+@import "layout/sidebar";
+@import "layout/page-header";
+
+//Elements
+@import "elements/modal";
+@import "elements/buttons";
+@import "elements/tables";
+@import "elements/tabs";
+@import "elements/badges";
+@import "elements/fullcalendar";
+@import "elements/dark-switch";
+
+//Form
+@import "form/input";
+@import "form/select";
+@import "form/datepicker";
+
+//Pages
+@import "pages/orders";
+@import "pages/add-consultation";
+@import "pages/profile";
+@import "pages/notifications";
