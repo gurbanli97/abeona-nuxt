@@ -69,7 +69,9 @@ export default {
     { src: "~/plugins/vue-select" },
     { src: "~/plugins/vClickOutside" },
     { src: "~/plugins/vue-scrollto" },
-    { src: '~/plugins/full-calendar', ssr: false}
+    { src: "~/plugins/vuelidate" },
+    { src: '~/plugins/full-calendar', ssr: false},
+    { src: "~/plugins/vue-ellipse",mode: 'client'},
   ],
 
   // Auto import components: https://go.nuxtjs.dev/config-components
@@ -84,6 +86,8 @@ export default {
     // https://go.nuxtjs.dev/bootstrap
     'bootstrap-vue/nuxt',
     '@nuxtjs/axios',
+    '@nuxtjs/auth-next',
+    'cookie-universal-nuxt',
     '@nuxtjs/moment',
     '@nuxtjs/toast',
     'vue-scrollto/nuxt',
@@ -102,10 +106,41 @@ export default {
      }
    },
 
+   auth: {
+    localStorage: false,
+    strategies: {
+      local: {
+        token: {
+          property: 'token',
+          global: true,
+          required: true,
+          maxAge: 60 * 60 * 24 * 30,
+          type: 'Token'
+        },
+        user: {
+          property: false,
+          autoFetch: true
+        },
+        endpoints: {
+          login: { url: 'api/v1/login', method: 'post' },
+          logout: false,
+          user: false
+        },
+       
+      }
+    },
+    redirect: {
+      login: '/login',
+      logout: '/login',
+      callback: '/login',
+      home: '/'
+    }
+  },
+
   toast: {
     position: "top-right",
     keepOnHover: true,
-    duration: 5000
+    duration: 3000
   },
 
   // Build Configuration: https://go.nuxtjs.dev/config-build

@@ -7,7 +7,7 @@ export const MenuMixin = {
                 {id:2,title: 'Orders',route: '/orders',icon: 'menu-1'},
                 {id:3,title: 'Billing',route: '/billing',icon: 'wallet-2'},
                 {id:4,title: 'Insure',route: '/insure',icon: 'document-text'},
-                {id:5,title: 'Customers',route: '/customers',icon: 'people'},
+                {id:5,title: 'Clients',route: '/clients',icon: 'people'},
             ]
         }
     }

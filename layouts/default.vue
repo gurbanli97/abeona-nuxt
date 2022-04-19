@@ -14,8 +14,9 @@ import { mapState} from 'vuex'
 export default {
   components: { Sidebar },
   name: "DefaultLayout",
+  middleware: 'auth',
    computed: {
-        ...mapState(['sidebarIsActive'])
+        ...mapState(['sidebarIsActive']),
   },
 }
 </script>

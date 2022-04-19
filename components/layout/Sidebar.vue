@@ -98,7 +98,7 @@
                 </div>
                </NuxtLink>
                 <div class="logout" v-if="sidebarIsActive">
-                    <icon :name="'logout-1'"/>
+                    <span @click="handleLogout"><icon :name="'logout-1'"/></span>
                 </div>
             </div>
           </div>
@@ -108,7 +108,7 @@
 
 <script>
 import { MenuMixin } from '~/mixins/menu-data';
-import { mapState } from 'vuex'
+import { mapGetters } from 'vuex'
 
 
 export default {
@@ -137,7 +137,7 @@ export default {
         }
     },
     computed: {
-        ...mapState(['sidebarIsActive'])
+        ...mapGetters(['sidebarIsActive'])
     },
     methods: {
         toggleSidebar() {
@@ -145,8 +145,10 @@ export default {
         },
         closeNotyTooltip(){
              this.$refs.notificationTooltip.$emit('close')
-             
              this.$router.push('/notifications')
+        },
+        async handleLogout(){
+            await this.$auth.logout()
         }
     //     handleDocClick(event) { 
     //     if(this.notificationsActive === false) {
